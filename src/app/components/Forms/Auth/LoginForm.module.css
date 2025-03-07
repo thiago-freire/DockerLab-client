@@ -1,0 +1,22 @@
+.title {
+    @apply font-bold font-display text-4xl text-black mb-16
+}
+
+.form {
+    @apply flex flex-col
+}
+
+.wrapperEmailInput {
+    @apply flex flex-col mt-5
+}
+
+.wrapperPasswordInput {
+    @apply flex flex-col mt-3 mb-5
+}
+.textInput {
+    @apply input input-primary flex items-center gap-2 bg-white text-black relative
+}
+
+.linkSecundary {
+    @apply link link-secondary mt-2
+}

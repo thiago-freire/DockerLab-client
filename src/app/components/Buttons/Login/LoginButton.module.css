@@ -1,0 +1,11 @@
+.submit_button {
+    @apply btn btn-primary
+}
+
+.innerDiv {
+    @apply flex flex-row items-center gap-2 text-primary
+}
+
+.loadingIcon {
+    @apply loading loading-spinner loading-md
+}
