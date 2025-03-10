@@ -24,9 +24,8 @@ export default function Page(){
                 const urlImage = session.user?.image!;
 
                 setContent(<div className="flex flex-col p-20 items-center">
-                                <div>Olá, {session.user?.name}</div>
+                                <div>Olá, {session.user?.name}! Você é visitante!</div>
                                 <div>Email: {session.user?.email}</div>
-                                <div>Imagem: {urlImage}</div>
                                 <Image src={urlImage} alt="Foto" width={96} height={96} className="p-2 rounded-md"/>
                                 <button onClick={() => signOut()}>Sign out</button>
                             </div>);
