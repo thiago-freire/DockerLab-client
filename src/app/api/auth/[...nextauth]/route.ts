@@ -33,13 +33,13 @@ const nextAuthOptions = {
       },
     },
     secret: "chavinha",
-    // pages: {
-    //   signIn: "/login", 
-    //   error: "/signup", 
-    // },
-    // jwt: {
-    //   secret: "chavinha",
-    // },
+    pages: {
+      signIn: "/login", 
+      error: "/signup", 
+    },
+    jwt: {
+      secret: "chavinha",
+    },
   };
 
 const handler = NextAuth(nextAuthOptions);

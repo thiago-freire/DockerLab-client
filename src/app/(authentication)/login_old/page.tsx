@@ -21,7 +21,7 @@ export default function Login(){
             if (session) {
                 router.push("/home", { scroll: false });
             }else{
-                setContent(<div className="flex flex-col items-center justify-center my-8">
+                setContent(<div className="bg-login bg-cover bg-center flex justify-center items-center min-h-screen">
                                 <LoginForm/>
                             </div>);
             }

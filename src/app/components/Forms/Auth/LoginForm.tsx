@@ -94,7 +94,7 @@ export function LoginForm() {
     };
     
     //JSX
-    return (<div className='artboard phone-1 bg-white flex flex-col items-center rounded-xl py-16'>
+    return (<div className={styles.conteiner}>
                 <h1 className={styles.title}>Login</h1>
                 <form onSubmit={handleSubmit(login)} className={styles.form}>
                     <div className={styles.wrapperEmailInput}>
@@ -104,7 +104,7 @@ export function LoginForm() {
                                     type='email'
                                     id="email"
                                     name='email'
-                                    className="bg-white" 
+                                    className="bg-white text-primary" 
                                     placeholder="Digite seu email" 
                                     autoComplete='email'/>
                         </label>
@@ -117,19 +117,18 @@ export function LoginForm() {
                                     id="password"
                                     type="password"
                                     name="password"
-                                    className=''
+                                    className='bg-white text-primary'
                                     placeholder='Digite sua senha'
                                     autoComplete='current-password'/>
                         </label>
                         {/* {hasErrorFeedbackPassword(state)} */}
-                        <Link href='#' className="opacity-50 pointer-events-none ">Esqueceu a senha?</Link>
+                        <Link href='#' className={styles.linkSecundary}>Esqueceu a senha?</Link>
                     </div>
                     <SubmitButton isPending = {isPending}/>
                     {error && hasMessage(error)}
                 </form>
                 <p className='p-5 text-blue-600 font-bold'>ou</p>
                 <GoogleBtn/>
-                {/* <Link href='/signup' className={styles.linkSecundary}>Cadastrar-se</Link> */}
             </div>)
 }
 

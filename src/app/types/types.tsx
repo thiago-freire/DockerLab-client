@@ -1,6 +1,6 @@
 export interface LoginData {
     email: string;
-    password: string;
+    password: string | null;
 }
 
 export interface ErrorType {
@@ -9,10 +9,10 @@ export interface ErrorType {
 }
 
 export interface User {
-    name: string,
-    surname: string,
-    login: string,
-    email: string,
-    password: string,
-    profile: string
+    name: string | null,
+    surname: string | null,
+    login: string | null,
+    email: string | null,
+    password: string | null,
+    profile: string | null
 }

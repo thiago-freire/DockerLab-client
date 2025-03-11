@@ -3,20 +3,24 @@
 }
 
 .form {
-    @apply flex flex-col
+    @apply flex flex-col items-center justify-center
 }
 
 .wrapperEmailInput {
-    @apply flex flex-col mt-5
+    @apply flex flex-col mt-5 mx-5
 }
 
 .wrapperPasswordInput {
-    @apply flex flex-col mt-3 mb-5
+    @apply flex flex-col mt-3 mb-5 mx-5
 }
 .textInput {
     @apply input input-primary flex items-center gap-2 bg-white text-black relative
 }
 
 .linkSecundary {
-    @apply link link-secondary mt-2
+    @apply link link-info mt-2 text-sm
+}
+
+.conteiner {
+    @apply bg-white flex flex-col items-center rounded-2xl py-16 max-w-screen-md max-h-screen
 }
