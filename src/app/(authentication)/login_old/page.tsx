@@ -1,8 +1,8 @@
-"use client";
+ "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSession } from "next-auth/react";
-import { LoginForm } from "@/app/components/Forms/Auth/LoginForm"
+// import { LoginForm } from "@/app/components/Forms/Auth/LoginForm"
 
 export default function Login(){
 
@@ -22,12 +22,12 @@ export default function Login(){
                 router.push("/home", { scroll: false });
             }else{
                 setContent(<div className="bg-login bg-cover bg-center flex justify-center items-center min-h-screen">
-                                <LoginForm/>
+                                {/* <LoginForm/> */}Nada
                             </div>);
             }
         });
         
-    },[]);
+    },[router]);
 
     return content;
 }

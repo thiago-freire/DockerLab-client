@@ -1,7 +1,7 @@
 "use client";
 import "client-only";
 
-import bcrypt from 'bcrypt'
+// import bcrypt from 'bcrypt'
 import type { LoginData } from "../../types/types"
 
 /**

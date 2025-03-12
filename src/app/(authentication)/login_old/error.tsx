@@ -1,12 +1,12 @@
-"use client";
-import { LoginForm } from "@/app/components/Forms/Auth/LoginForm";
+ "use client";
+// import { LoginForm } from "@/app/components/Forms/Auth/LoginForm";
 
-export default function ErrorBoundary() {
+// export default function ErrorBoundary() {
 
-    return (
-        <>
-            <LoginForm />
-            <p className="text-error">Não foi autenticar os dados. Tente novamente mais tarde.</p>
-        </>
-    )
-}
+//     return (
+//         <>
+//             <LoginForm />
+//             <p className="text-error">Não foi autenticar os dados. Tente novamente mais tarde.</p>
+//         </>
+//     )
+// }

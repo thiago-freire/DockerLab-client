@@ -28,7 +28,7 @@ export default function Signup(){
                     }
                 });
         
-    },[]);
+    },[router]);
     
     return content;
 }
