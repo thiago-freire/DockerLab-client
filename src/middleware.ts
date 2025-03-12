@@ -19,11 +19,11 @@ export async function middleware(request: NextRequest) {
 
     console.log(isItemInSet);
     
-    if(!isItemInSet && request.nextUrl.pathname !== "/visitante"){
-      const response = NextResponse.redirect(new URL('/visitante', request.nextUrl));
+    if(!isItemInSet && request.nextUrl.pathname !== "/home/visitante"){
+      const response = NextResponse.redirect(new URL('/home/visitante', request.nextUrl));
       return response;
     } else if (request.nextUrl.pathname === "/") {
-      const response = NextResponse.redirect(new URL('/home', request.nextUrl));
+      const response = NextResponse.redirect(new URL('/home/viplab', request.nextUrl));
       return response;
     }
   } else {

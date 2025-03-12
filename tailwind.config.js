@@ -33,23 +33,10 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'lines': 'repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.4) 0px, rgba(255, 255, 255, 0.4) 6px, transparent 10px, transparent 20px)',
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        'login': 'url("/assets/background.png")',
-        'stepper_open': 'url("/assets/Stepper/dropdown-open.png")',
-        'stepper_close': 'url("/assets/Stepper/dropdown-close.png")',
-        'stepper_completed': 'url("/assets/Stepper/step-completed.svg")',
-        'save': 'url("/assets/save.png")',
-        'add': 'url("/assets/add.png")',
-        'trash': 'url("/assets/delete.png")',
-        'back': 'url("/assets/back.png")',
-        'close': 'url("/assets/Icon_close.png")',
-        'download-blue': 'url("/assets/download-blue.svg")',
-        'download-white': 'url("/assets/download-icon.png")',
-        'select-point': 'url("/assets/Map Pop-Up/Vector.png")',
-        'logout': 'url(/assets/logout.png)'
+        'docker_image': 'url(/assets/wp8114614-docker-wallpapers.png)',
+        'docker_logo': 'url(/assets/docker_logo.png)',
+        'nca_google': 'url(/assets/nca_google_2.png)',
+        'docker_bg': 'url(/assets/docker_bg.jpg)'
       },
       backgroundPosition : {
         'left-20': '11%'

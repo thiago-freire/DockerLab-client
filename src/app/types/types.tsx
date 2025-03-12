@@ -9,10 +9,8 @@ export interface ErrorType {
 }
 
 export interface User {
-    name: string | null,
-    surname: string | null,
-    login: string | null,
-    email: string | null,
-    password: string | null,
-    profile: string | null
+    name: string | null | undefined,
+    email: string | null | undefined,
+    imagem: string | null | undefined,
+    profile: string | null | undefined
 }

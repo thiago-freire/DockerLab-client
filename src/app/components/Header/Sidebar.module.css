@@ -1,0 +1,13 @@
+.overlay {
+  @apply fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-30
+}
+
+.header_bar{
+  @apply navbar bg-sky-950 shadow-sm flex flex-row items-center p-2.5 text-white top-0 left-0 w-full h-16 z-30
+}
+
+.svg_icon{
+  @apply h-8 w-8 fill-current hover:text-sky-300
+}
+
+/* '' */

@@ -1,0 +1,7 @@
+.title {
+    @apply w-60 bg-docker_logo py-8 my-8 basis-full
+}
+
+.conteiner {
+    @apply bg-black flex flex-col items-baseline justify-center pl-12 pr-4
+}

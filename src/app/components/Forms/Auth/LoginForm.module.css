@@ -13,6 +13,7 @@
 .wrapperPasswordInput {
     @apply flex flex-col mt-3 mb-5 mx-5
 }
+
 .textInput {
     @apply input input-primary flex items-center gap-2 bg-white text-black relative
 }

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSession } from "next-auth/react";
-import { LoginForm } from "@/app/components/Forms/Auth/LoginForm"
+import { NCAForm } from "@/app/components/Forms/Auth/NCAForm";
 
 export default function Login(){
 
@@ -19,10 +19,12 @@ export default function Login(){
 
         verifySession().then((session)=>{
             if (session) {
-                router.push("/home", { scroll: false });
+                router.push("/home/viplab", { scroll: false });
             }else{
-                setContent(<div className="flex flex-col items-center justify-center my-8">
-                                <LoginForm/>
+                setContent(<div className="flex bg-cover bg-center bg-docker_image min-h-screen justify-end">
+                                <div className="flex justify-center align-middle">
+                                    <NCAForm/>
+                                </div>
                             </div>);
             }
         });
