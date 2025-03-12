@@ -1,7 +1,7 @@
 
 "use client";
 import Link from 'next/link';
-import { Field, FieldValues, useForm } from "react-hook-form"; 
+import { FieldValues, useForm } from "react-hook-form"; 
 import { SubmitButton } from "../../Buttons/Login/loginButton";
 import { EmailIcon, PasswordIcon } from '../../Icons/Login/icons'
 import styles from "@/app/components/Forms/Auth/LoginForm.module.css";
@@ -36,14 +36,14 @@ export function LoginForm() {
             if (!validationResult.success){
                 let messageArray: Array<string> =  []
                 const messages = validationResult.error.flatten().fieldErrors;
-                for (let key in messages.email) {
+                for (const key in messages.email) {
                     // Verifica se a chave existe no objeto de erros
                     if (messages.hasOwnProperty(key)) {
                       // Concatena as mensagens para a chave específica
                       messageArray = messageArray.concat(key);
                     }
                 }
-                for (let key in messages.password) {
+                for (const key in messages.password) {
                     // Verifica se a chave existe no objeto de erros
                     if (messages.hasOwnProperty(key)) {
                       // Concatena as mensagens para a chave específica

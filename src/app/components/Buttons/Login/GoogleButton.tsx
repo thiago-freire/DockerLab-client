@@ -10,6 +10,6 @@ export function GoogleBtn(){
     }
 
     return  <button onClick={login} className="flex btn bg-white btn-outline gap-2 items-center border border-neutral-900 p-2 rounded-md h-24">
-                <img src="/assets/nca_google_2.png" alt="" width={180} height={80}/>
+                <Image src="/assets/nca_google_2.png" alt="Login" width={180} height={80}/>
             </button>
 }
