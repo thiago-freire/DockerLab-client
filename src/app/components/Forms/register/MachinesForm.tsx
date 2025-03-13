@@ -46,6 +46,11 @@ export function MachinesForm() {
             // Autentica o usuario na API
             const response = await sendMachinetoAPI(machine);
 
+            if(!response.status){
+                const error: ErrorType = {message: [response.mensage], type: response.error!}
+                setError(error);
+            }
+
             console.log(response.mensage);
             console.log(response.status);
             console.log(response.error);
@@ -56,7 +61,7 @@ export function MachinesForm() {
     }
 
     
-//     //JSX
+     //JSX
     return (<div className={styles.conteiner}>
                 <form onSubmit={handleSubmit(machiRegister)} className={styles.form}>
                     <div className="flex">
@@ -71,7 +76,6 @@ export function MachinesForm() {
                             <label className="input validator">
                                 <span className="label">Host IP: </span>
                                 <input {...register("ip")} type="text" className={styles.input_text} required pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$" placeholder="192.168.200.1" />
-                                {/*  */}
                             </label>
                             <p className="validator-hint">Deve ser um endereço de ip válido.</p>
                         </div>

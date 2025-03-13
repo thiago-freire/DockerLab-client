@@ -72,7 +72,9 @@
 
 // }
 
-export async function signup(_: any, formData: FormData){
+// export async function signup(_: any, formData: FormData){
+
+    // console.log(_, formData);
 //     // Validação dos campos do formulário de signup
 //     const validationResult = validateResult(formData);
 //     if (!validationResult.success){
@@ -112,4 +114,4 @@ export async function signup(_: any, formData: FormData){
 //     // Redireciona para página de login após criar conta
 //     redirect('/login');
 
-}   
+// }   
