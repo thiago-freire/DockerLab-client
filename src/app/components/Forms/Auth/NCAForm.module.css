@@ -3,5 +3,5 @@
 }
 
 .conteiner {
-    @apply bg-black flex flex-col items-baseline justify-center pl-12 pr-4
+    @apply bg-black flex flex-col items-baseline justify-center pl-6
 }

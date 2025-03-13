@@ -1,0 +1,7 @@
+.conteiner{
+    @apply flex flex-col items-start justify-start min-h-screen max-w-[1024]
+}
+
+.top{
+    @apply text-3xl font-bold uppercase mb-9
+}

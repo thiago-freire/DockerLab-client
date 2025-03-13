@@ -1,5 +1,5 @@
 "use client"
-import { SignupForm } from "@/app/components/Forms/Auth/SignupForm";
+// import { SignupForm } from "@/app/components/Forms/Auth/SignupForm";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -23,7 +23,7 @@ export default function Signup(){
                         router.push("/home", { scroll: false });
                     }else{
                         setContent(<div className='bg-login bg-cover bg-center flex justify-center items-center min-h-screen'>
-                                        <SignupForm /> 
+                                        {/* <SignupForm />  */}
                                     </div>);
                     }
                 });

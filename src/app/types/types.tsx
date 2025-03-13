@@ -24,3 +24,20 @@ export interface MenuListItemParam {
     children: React.ReactNode, 
     onclick: MouseEventHandler<HTMLLIElement>
 }
+
+
+export interface Machine {
+
+    nome: string | null | undefined;
+    ip: string | null | undefined;
+    porta: number | null | undefined;
+    login: string | null | undefined;
+    senha: string | null | undefined;
+}
+
+export interface ResponseDockerLab {
+
+    mensage: string;
+    status: boolean;
+    error: string | null | undefined;
+}

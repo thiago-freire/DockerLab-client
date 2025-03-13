@@ -7,7 +7,9 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   return (
       <>
         <HeaderMenu/>
-        {children}
+        <div className="flex items-start justify-center">
+          {children}
+        </div>
       </>
   );
 }

@@ -1,8 +1,10 @@
 "use client";
+import styles from "@/app/home/home.module.css"
 
 export default function Page(){
 
-    return  <div className="flex items-center justify-center min-h-screen">
-                <h1>Página de visitantes!</h1>
+    return  <div className={styles.conteiner}>
+                <div className={styles.top}>Página de visitantes!</div>
+                
             </div>;
 }

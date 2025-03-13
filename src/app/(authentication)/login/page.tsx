@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSession } from "next-auth/react";
-import { NCAForm } from "@/app/components/Forms/Auth/NCAForm";
+import { NCAForm } from "@/app/components/Forms/auth/NCAForm";
 
 export default function Login(){
 

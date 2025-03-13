@@ -1,9 +1,24 @@
 "use client";
 
+import { MachinesForm } from "@/app/components/Forms/register/MachinesForm";
+import { RegistredMachines } from "@/app/components/Tables/Registredmachines";
+import styles from "@/app/home/home.module.css"
+
 export default function Page(){
 
-    return  <div className="flex flex-col items-center justify-center min-h-screen">
-                <p className="text-2xl font-bold mb-9">Página da galera do VIPLab</p>
-                <p>Aqui vai ter o daschboard maroto que o Matheus projetou.</p>
+    return  <div className={styles.conteiner}>
+                {/* <div className={styles.top}>Página da galera do VIPLab</div> */}
+                <div tabIndex={0} className="collapse collapse-open collapse-arrow bg-base-100 border-base-300 border">
+                    <div className="collapse-title font-semibold">Registro de Máquinas</div>
+                    <div className="collapse-content">
+                        <MachinesForm/>
+                    </div>
+                </div>
+                <div tabIndex={0} className="collapse collapse-open collapse-arrow bg-base-100 border-base-300 border">
+                    <div className="collapse-title font-semibold">Registro de Máquinas</div>
+                    <div className="collapse-content">
+                        <RegistredMachines/>
+                    </div>
+                </div>
             </div>;
 }

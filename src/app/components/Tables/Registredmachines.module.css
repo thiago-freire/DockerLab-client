@@ -1,0 +1,11 @@
+.conteiner{
+    @apply h-96 overflow-x-auto;
+}
+
+.table_{
+    @apply table table-pin-rows bg-slate-500;
+}
+
+.tr_{
+    @apply hover:bg-base-300
+}

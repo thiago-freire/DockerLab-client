@@ -1,5 +1,5 @@
 "use client"
-import { SignupForm } from "@/app/components/Forms/Auth/SignupForm";
+import { SignupForm } from "@/app/components/Forms/auth/SignupForm";
 
 export default function ErrorBoundary() {
     return (

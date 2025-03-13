@@ -1,0 +1,27 @@
+.conteiner {
+    @apply flex flex-col items-center justify-center pt-8 bg-amber-100 rounded-md
+}
+
+.title {
+    @apply font-bold font-display text-4xl text-black mb-8
+}
+
+.form {
+    @apply flex flex-col items-center justify-center
+}
+
+.input_text{
+    @apply input-ghost
+}
+
+.submit_button {
+    @apply btn btn-outline bg-black text-white m-4 rounded-xl
+}
+
+.loading_button {
+    @apply loading loading-spinner loading-md
+}
+
+.innerDiv{
+    @apply text-sky-500 text-sm
+}
