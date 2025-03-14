@@ -1,8 +1,8 @@
 "use client"
 
-import styles from "@/app/components/Tables/RegistredMachines.module.css";
+import styles from "@/app/components/Tables/Machines.module.css";
 
-export function RegistredMachines(){
+export function Machines(){
 
 
     return (

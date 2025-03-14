@@ -35,9 +35,21 @@ export interface Machine {
     senha: string | null | undefined;
 }
 
+export interface Node {
+
+    nome: string | null | undefined;
+    maquina: number | null | undefined;
+    usuario: string | null | undefined;
+    cores: number | null | undefined;
+    ram: number | null | undefined;
+    device: number | null | undefined;
+    network: number | null | undefined;
+}
+
 export interface ResponseDockerLab {
 
     mensage: string;
     status: boolean;
     error: string | null | undefined;
 }
+
