@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "@/app/components/Tables/Registredmachines.module.css";
+import styles from "@/app/components/Tables/RegistredMachines.module.css";
 
 export function RegistredMachines(){
 
@@ -9,7 +9,7 @@ export function RegistredMachines(){
 
         <div className={styles.conteiner}>
             <table className={styles.table_}>
-                <thead>
+                <thead className={styles.thead_}>
                 <tr>
                     <th></th>
                     <th>Hostname</th>
@@ -32,9 +32,10 @@ export function RegistredMachines(){
                         <td>0 de 24GB (0%)</td>
                         <td>
                             <div className="inline-grid *:[grid-area:1/1]">
-                                <div className="status status-error animate-ping"></div>
-                                <div className="status status-error"></div>
-                            </div> Offline
+                                <div className="status status-error status-lg animate-ping"></div>
+                                <div className="status status-error status-lg"></div>
+                            </div>
+                            <strong> Offline </strong>
                         </td>
                     </tr>
                     <tr className={styles.tr_}>
@@ -47,9 +48,9 @@ export function RegistredMachines(){
                         <td>24 de 24GB (100%)</td>
                         <td>
                             <div className="inline-grid *:[grid-area:1/1]">
-                                <div className="status status-success animate-ping"></div>
-                                <div className="status status-success"></div>
-                            </div> Online
+                                <div className="status status-success status-lg animate-ping"></div>
+                                <div className="status status-success status-lg"></div>
+                            </div><strong> Online </strong>
                         </td>
                     </tr>
                     <tr className={styles.tr_}>
@@ -62,9 +63,9 @@ export function RegistredMachines(){
                         <td>48 de 96GB (50%)</td>
                         <td>
                             <div className="inline-grid *:[grid-area:1/1]">
-                                <div className="status status-success animate-ping"></div>
-                                <div className="status status-success"></div>
-                            </div> Online
+                                <div className="status status-success status-lg animate-ping"></div>
+                                <div className="status status-success status-lg"></div>
+                            </div><strong> Online </strong>
                         </td>
                     </tr>
                     <tr className={styles.tr_}>
@@ -77,9 +78,9 @@ export function RegistredMachines(){
                         <td>48 de 96GB (50%)</td>
                         <td>
                             <div className="inline-grid *:[grid-area:1/1]">
-                                <div className="status status-success animate-ping"></div>
-                                <div className="status status-success"></div>
-                            </div> Online
+                                <div className="status status-success status-lg animate-ping"></div>
+                                <div className="status status-success status-lg"></div>
+                            </div><strong> Online </strong>
                         </td>
                     </tr>
                 </tbody>

@@ -102,7 +102,7 @@ export default function HeaderMenu() {
             <div className='mx-4 text-xs text-gray-400'>{user?.email}</div>
           </div>
           <div tabIndex={1} className="dropdown dropdown-end">
-            <div role="button" className="btn btn-ghost btn-circle avatar w-12 h-12">
+            <div role="button" className="btn btn-ghost btn-square rounded-xl avatar w-12 h-12">
               <div className="w-11 rounded-xl">
                 { user?.email && user?.imagem &&
                 <Image alt={user?.email} src={user?.imagem} width={44} height={44}/>

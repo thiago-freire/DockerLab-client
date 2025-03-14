@@ -1,5 +1,5 @@
 .conteiner {
-    @apply flex flex-col items-center justify-center pt-8 bg-amber-100 rounded-md
+    @apply flex flex-col items-center justify-center pt-8 bg-sky-200 rounded-md
 }
 
 .title {
@@ -15,13 +15,13 @@
 }
 
 .submit_button {
-    @apply btn btn-outline bg-black text-white m-4 rounded-xl
+    @apply btn btn-outline bg-sky-800 text-white m-4 rounded-xl
 }
 
 .loading_button {
-    @apply loading loading-spinner loading-md
+    @apply loading loading-ring loading-md
 }
 
 .innerDiv{
-    @apply text-sky-500 text-sm
+    @apply text-sky-800 text-sm bg-sky-200
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { MachinesForm } from "@/app/components/Forms/register/MachinesForm";
-import { RegistredMachines } from "@/app/components/Tables/Registredmachines";
+import { RegistredMachines } from "@/app/components/Tables/RegistredMachines";
 import styles from "@/app/home/home.module.css"
 
 export default function Page(){

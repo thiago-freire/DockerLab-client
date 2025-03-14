@@ -12,12 +12,8 @@ export async function middleware(request: NextRequest) {
 
   if (session) {
 
-    console.log(session);
-
     const interestingItems = new Set(data);
     const isItemInSet = interestingItems.has(session.email!);
-
-    console.log(isItemInSet);
     
     if(!isItemInSet && request.nextUrl.pathname !== "/home/visitante"){
       const response = NextResponse.redirect(new URL('/home/visitante', request.nextUrl));
