@@ -18,8 +18,8 @@
         "name": "next"
       }
     ],
-    "paths": {
-      "@/*": ["./src/*"]
+    "baseUrl": "./src/",
+    "paths": {"@/app/*": ["app/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/Tables/Nodes.tsx"],

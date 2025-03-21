@@ -1,10 +1,10 @@
 "use client"
-import { SignupForm } from "@/app/components/Forms/auth/SignupForm";
+// import { SignupForm } from "@/app/components/Forms/Auth/SignupForm";
 
 export default function ErrorBoundary() {
     return (
         <>
-            <SignupForm />  
+            {/* <SignupForm />   */}
             <p className='text-error'>Não foi possível enviar os dados. Tente mais tarde.</p>
         </>
     )
