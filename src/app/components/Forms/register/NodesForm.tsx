@@ -154,7 +154,8 @@ export function NodesForm() {
                                 <select {...register("device")} className={styles.input_text} required>
                                 <option disabled>Selecione...</option>
                                     <option value={1}>Bridge</option>
-                                    <option value={2}>Outra Opção</option>
+                                    <option value={2}>Host</option>
+                                    <option value={3}>Overlay</option>
                                 </select>
                             </label>
                             <p className="validator-hint">Escolha uma opção.</p>

@@ -25,31 +25,87 @@ export interface MenuListItemParam {
     onclick: MouseEventHandler<HTMLLIElement>
 }
 
+export interface CPU {
 
-export interface Machine {
-
-    nome: string | null | undefined;
-    ip: string | null | undefined;
-    porta: number | null | undefined;
-    login: string | null | undefined;
-    senha: string | null | undefined;
+    cores_fisicos: number;
+    cores_totais: number;
+    freq_max: number;
+    freq_min: number;
+    frequencia: number;
+    uso_total: number;
 }
 
-export interface Node {
+export interface Memory {
 
-    nome: string | null | undefined;
-    maquina: number | null | undefined;
-    usuario: string | null | undefined;
-    cores: number | null | undefined;
-    ram: number | null | undefined;
-    device: number | null | undefined;
-    network: number | null | undefined;
+    Total: string,
+    Available: string,
+    Used: string,
+    Percentage: number,
 }
+
+export interface HardDisk {
+
+    device: string,
+    mountpoint: string,
+    total_size: string,
+    used: string,
+    free: string,
+    percentage: number
+}
+
+export interface Network {
+
+    device: string,
+    ip: string,
+    mascara: string,
+    broadcast: string
+}
+
+export function instanceOfFullMachine(object: any): object is FullMachine {
+    return 'CPU' in object;
+}
+
+export interface GPU {
+
+    id: number, 
+    nome: string,
+    load: string,
+    free: string, 
+    used: string,
+    total: string,
+    temperature: number
+}
+
+export interface FullMachine {
+
+    id: number;
+    Nome: string;
+    porta: number;
+    login: string;
+    senha: string;
+    status: boolean;
+    create_date: string;
+
+    GPU: Array<GPU>;
+    Network: Network | string;
+    HardDisk: Array<HardDisk>;
+    Memory: Memory;
+    CPU: CPU;
+}
+
+export type Machine = Omit<FullMachine, 'GPU' | 'HardDisk' | 'Memory' | 'CPU'>;
 
 export interface ResponseDockerLab {
 
     mensage: string;
     status: boolean;
     error: string | null | undefined;
+}
+
+export interface RequestOptions {
+
+    method: 'GET' | 'POST';
+    headers: Map<string, string>;
+    body: FormData | string | undefined;
 }
 

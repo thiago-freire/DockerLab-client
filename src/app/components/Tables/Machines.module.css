@@ -1,5 +1,5 @@
 .conteiner{
-    @apply h-96 overflow-x-auto;
+    @apply h-max overflow-x-auto;
 }
 
 .table_{
@@ -12,4 +12,8 @@
 
 .tr_{
     @apply hover:bg-sky-600 text-sky-950;
+}
+
+.break_line{
+    @apply whitespace-pre-line
 }

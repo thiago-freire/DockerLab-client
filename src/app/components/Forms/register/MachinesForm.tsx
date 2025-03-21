@@ -30,19 +30,19 @@ export function MachinesForm() {
 
     function machiRegister(setData: FieldValues){
 
-        const nome = setData.nome;
+        const nome: string = setData.nome;
 
-        const ip = setData.ip;
+        const ip: string = setData.ip;
 
-        const porta = setData.porta;
+        const porta: number = setData.porta;
 
-        const login = setData.login;
+        const login: string = setData.login;
 
-        const senha = setData.senha;
+        const senha: string = setData.senha;
 
         startTransition(async () =>{
             
-            const machine: Machine = {nome: nome, ip: ip, porta: porta, login: login, senha:senha};
+            const machine: Omit<Machine, 'id' | 'status' | 'create_date'> = {Nome: nome, Network: ip, porta: porta, login: login, senha:senha};
             // Autentica o usuario na API
             const response = await sendMachinetoAPI(machine);
 
@@ -54,9 +54,6 @@ export function MachinesForm() {
             console.log(response.mensage);
             console.log(response.status);
             console.log(response.error);
-
-            await delay(5000);
-
         });
     }
 
