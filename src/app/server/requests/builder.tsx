@@ -1,5 +1,3 @@
-import { RequestOptions } from "@/app/types/types";
-
 
 export class RequestBuilder  {
 
@@ -36,7 +34,7 @@ export class RequestBuilder  {
         return this;
     }
 
-    setBody(body: FormData | Object) {
+    setBody(body: FormData | object) {
         if (body instanceof FormData){
             this.requestOptions.body = body
         }else {

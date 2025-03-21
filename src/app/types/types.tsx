@@ -61,7 +61,7 @@ export interface Network {
     broadcast: string
 }
 
-export function instanceOfFullMachine(object: any): object is FullMachine {
+export function instanceOfFullMachine(object: object): object is FullMachine {
     return 'CPU' in object;
 }
 

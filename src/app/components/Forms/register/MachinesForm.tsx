@@ -24,10 +24,6 @@ export function MachinesForm() {
     const [isPending, startTransition] = useTransition();
     const [error, setError] = useState<ErrorType>();
 
-    function delay(ms: number) {
-        return new Promise( resolve => setTimeout(resolve, ms) );
-    }
-
     function machiRegister(setData: FieldValues){
 
         const nome: string = setData.nome;
