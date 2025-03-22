@@ -3,7 +3,7 @@
 import "client-only";
 
 // import bcrypt from 'bcrypt'
-import type { LoginData } from "@/app/types/types"
+import type { LoginData } from "@/app/types/objects"
 
 /**
  * Extrai dados de um formulário: email e password e cifra a password

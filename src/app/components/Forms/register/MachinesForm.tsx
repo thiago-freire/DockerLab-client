@@ -3,7 +3,7 @@
 import styles from "@/app/components/Forms/register/machines.module.css";
 import { FieldValues, useForm } from "react-hook-form";
 import { useTransition, useState } from "react";
-import { ErrorType, Machine } from "@/app/types/types";
+import { ErrorType, Machine } from "@/app/types/objects";
 import { sendMachinetoAPI } from "@/app/server/machines/actions";
 
 function SubmitButton(invar: {isPending: boolean}) {

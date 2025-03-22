@@ -2,7 +2,7 @@
 'use server';
 import 'server-only';
 
-import { Machine, ResponseDockerLab, FullMachine } from '@/app/types/types';
+import { Machine, ResponseDockerLab, FullMachine } from '@/app/types/objects';
 import { APIURL } from "@/app/server/globals";
 import { RequestBuilder } from '../requests/builder';
 

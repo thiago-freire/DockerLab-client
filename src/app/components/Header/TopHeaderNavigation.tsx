@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signOut, getSession } from "next-auth/react";
 // import packageJson from "@/app/../../package.json";
-import { MenuListItemParam, User } from "@/app/types/types";
+import { MenuListItemParam, User } from "@/app/types/objects";
 import Image from "next/image";
 
 export default function HeaderMenu() {

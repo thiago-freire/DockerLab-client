@@ -2,7 +2,7 @@
 'use server';
 import 'server-only';
 
-import { Node, ResponseDockerLab } from '@/app/types/types';
+import { Node, ResponseDockerLab } from '@/app/types/objects';
 import { APIURL } from "@/app/server/globals";
 
 /**

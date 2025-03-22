@@ -13,11 +13,6 @@ export const SignupFormSchema = z.object({
                 .min(2, { message: 'Primeiro nome deve ter pelo menos 2 caracteres.' })
                 .trim(),
 
-        surname: z
-                .string()
-                .min(2, { message: 'Segundo nome deve ter pelo menos 2 caracteres.' })
-                .trim(),
-
         email: z
                 .string()
                 .email({ message: 'Digite um e-mail válido.' })
@@ -32,7 +27,7 @@ export const SignupFormSchema = z.object({
                 .trim(),
 
         profile: z
-                .enum(["A", "D", "N"])
+                .enum(["A", "U", "N"])
                 .exclude(["N"], {message: 'Escolha uma opção.'}),
 
         login: z

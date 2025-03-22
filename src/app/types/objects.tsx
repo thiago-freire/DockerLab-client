@@ -11,10 +11,12 @@ export interface ErrorType {
 }
 
 export interface User {
-    name: string | null | undefined,
-    email: string | null | undefined,
-    imagem: string | null | undefined,
-    profile: string | null | undefined
+    id: number,
+    login: string,
+    name: string,
+    email: string,
+    password: string,
+    profile: 'A' | 'U'
 }
 
 export interface MenuListItemParam {

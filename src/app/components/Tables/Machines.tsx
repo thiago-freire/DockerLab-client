@@ -2,10 +2,10 @@
 
 import styles from "@/app/components/Tables/Machines.module.css";
 import { getMachineList } from "@/app/server/machines/actions";
-import { FullMachine, Machine } from "@/app/types/types";
+import { FullMachine, Machine } from "@/app/types/objects";
 import { ReactElement, useEffect, useState } from "react";
 // import { string } from "zod";
-import { instanceOfFullMachine } from "@/app/types/types";
+import { instanceOfFullMachine } from "@/app/types/objects";
 
 export function Machines(){
 

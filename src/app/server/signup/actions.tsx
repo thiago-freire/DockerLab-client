@@ -1,37 +1,88 @@
 
-// 'use server';
-// import 'server-only';
-// import { SignupFormSchema } from './definitions';
-// // import bcrypt from 'bcrypt';
-// import { redirect } from 'next/navigation';
-// import { APIURL } from '../globals';
-// import { User } from '@/app/types/types';
+'use server';
+import 'server-only';
+import { SignupFormSchema } from './definitions';
+// import bcrypt from 'bcrypt';
+import { redirect } from 'next/navigation';
+import { APIURL } from '../globals';
+import { User } from '@/app/types/objects';
+import { ActionResult } from 'next/dist/server/app-render/types';
+import { formatError, getErrorsForBack, getErrorsForField, getErrorsForForm } from './formatError';
+import { revalidatePath } from 'next/cache';
+import { RequestBuilder } from '../requests/builder';
+import { ActionErrors, instanceOfActionErrors } from '@/app/types/forms';
+import { use } from 'react';
 
-// /**
-//  * Valida o formulário utilizando o esquema SignupFormSchema 
-//  * @param {FormData} formData O formulário a ser validado 
-//  * @returns {import('zod').SafeParseReturnType} Resultado da validação
-//  */
-// function validateResult(formData: FormData){
+/**
+ * Valida o formulário utilizando o esquema SignupFormSchema 
+ * @param {FormData} formData O formulário a ser validado 
+ * @returns {import('zod').SafeParseReturnType} Resultado da validação
+ */
+export async function signup(prevState: ActionResult, formData: FormData): Promise<ActionResult> {
 
-//     const name = formData.get('name');
-//     const surname = formData.get('surname');
-//     const email = formData.get('email');
-//     const password = formData.get('password');
-//     const perfil = formData.get('perfil');
+    const data = Object.fromEntries(formData.entries());
 
-//     const user: User = {
-//         name: name != null ? name.toString() : "",
-//         email: email != null ? email.toString() : "",
-//         profile: perfil != null ? perfil.toString() : "",
-//         imagem
-//         // login: email != null ? email.toString().substring(0, email.toString().indexOf('@')) : "",
-//     }
+    // validate the request
+    const result = await SignupFormSchema.safeParseAsync(data);
+    if(!result.success) return {
+        errors: formatError(result.error) 
+    };
 
-//     const result = SignupFormSchema.safeParse(user);
-                    
-//     return result
-// }
+    const user: Omit<User, 'id'> = result.data;
+  
+  try {
+    // create a new user
+    const userId = await createUser(user);
+    if(instanceOfActionErrors(userId)) 
+        return {
+            errors: userId
+        };
+  }
+  catch (error) {
+    return {
+      errors: formatError(error)
+    }
+  }
+
+  // redirect to the signin page
+  const path = '/login';
+  revalidatePath(path);
+  redirect(path);
+}
+
+async function createUser(user_send: Omit<User, 'id'>): Promise<User | ActionErrors>{
+
+    type JSONResponse = {
+        user?: User,
+        error?: Array<{ message: string }>
+    }
+
+    const requestOptions = new RequestBuilder()
+    .setMethod('POST')
+    .setContentType("application/json")
+    .setBody(user_send)
+    .build();
+
+    const url = `${APIURL}/user/create`;
+
+    const response = await fetch(url, requestOptions);
+
+    const { user, error }: JSONResponse = await response.json();
+
+    if(response.ok){
+		if (user) {
+			return user;
+		} else {
+            return getErrorsForBack('Erro no Backend ao cadastrar usuário.');
+		}
+    }else{
+        const itens: string[] = [];
+        error?.forEach(item=>{
+            itens.push(item.message);
+        });
+        return getErrorsForBack(itens);
+    }
+}
 
 // /**
 //  * Extrai name, surname, email e password de um formulário e calcula a hash da senha utilizando bcrypt
