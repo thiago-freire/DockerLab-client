@@ -25,7 +25,7 @@ export async function sendUsertoAPI(user_login: Omit<User, 'id' | 'name' | 'emai
     .setBody(user_login)
     .build();
 
-    const url = `${APIURL}/user/create`;
+    const url = `${APIURL}/user/login`;
 
     const response = await fetch(url, requestOptions);
 
