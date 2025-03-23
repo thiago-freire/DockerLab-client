@@ -1,9 +1,25 @@
-import NextAuth from "next-auth";
+import NextAuth, { DefaultSession, Session, User } from "next-auth";
 // import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { sendUsertoAPI } from "@/app/server/login/actions";
-import { User } from "@/app/types/objects";
+import { User as SysUser } from "@/app/types/objects";
 import { instanceOfActionErrors } from "@/app/types/forms";
+
+declare module "next-auth" {
+  
+  interface User {
+    id: number,
+    login: string,
+    name: string,
+    email: string,
+    password: string,
+    profile: 'A' | 'U'
+  }
+
+  interface Session {
+    user: SysUser
+  }
+}
 
 const nextAuthOptions = {
     providers: [
@@ -17,24 +33,20 @@ const nextAuthOptions = {
           },
           password: { label: "Senha", type: "password" },
         },
-
         authorize: async (credentials) => {
             
+          if(!credentials) return null;
+          
           try {
 
-            if(credentials){
-              
-              const user_login: Omit<User, 'id' | 'name' | 'email' | 'profile'> = {login: credentials.login, password: credentials.password}
-              
-              const user = await sendUsertoAPI(user_login);
-              
-              console.log(user);
+            const user_login: Omit<SysUser, 'id' | 'name' | 'email' | 'profile'> = {login: credentials.login, password: credentials.password}
+            
+            const user = await sendUsertoAPI(user_login);
+            
+            if(instanceOfActionErrors(user))
+              return null;
 
-              if(instanceOfActionErrors(user))
-                return null;
-
-              return user;
-            }
+            return user;
 
           } catch(error) {
             console.log(JSON.stringify(error)); 
@@ -48,14 +60,7 @@ const nextAuthOptions = {
       //   clientSecret: process.env.GOOGLE_CLIENT_SECRET!
       // })
     ],
-    session: ({ session, token }) => {
-        
-      if (token) {
-        session = token;
-      }
 
-      return session;
-    },
     secret: "chavinha",
     pages: {
       signIn: "/login", 
