@@ -43,7 +43,13 @@ export function MachinesForm() {
             const response = await sendMachinetoAPI(machine);
 
             if(!response.status){
-                const error: ErrorType = {message: [response.mensage], type: response.error!}
+                let mensagem: string[];
+                if(typeof response.mensage == "string")
+                    mensagem = [response.mensage]
+                else
+                mensagem = response.mensage
+
+                const error: ErrorType = {message: mensagem, type: response.error!}
                 setError(error);
             }
 

@@ -80,9 +80,10 @@ function formatZodError(error: ZodError): ActionErrors {
     const fieldErrors: FieldErrors = {};
 
     for (const key in zodErrors.fieldErrors) {
-      fieldErrors[key] = zodErrors.fieldErrors[key]?.join(', ');
+      fieldErrors[key] = zodErrors.fieldErrors[key]?.join('');
     }
     errors.fieldErrors = fieldErrors;
   }
+
   return errors;
 }

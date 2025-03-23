@@ -1,5 +1,5 @@
 import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+// import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { sendUsertoAPI } from "@/app/server/login/actions";
 import { User } from "@/app/types/objects";
@@ -43,11 +43,19 @@ const nextAuthOptions = {
         },
       }),
       
-      GoogleProvider({
-        clientId: process.env.GOOGLE_CLIENT_ID!,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET!
-      })
+      // GoogleProvider({
+      //   clientId: process.env.GOOGLE_CLIENT_ID!,
+      //   clientSecret: process.env.GOOGLE_CLIENT_SECRET!
+      // })
     ],
+    session: ({ session, token }) => {
+        
+      if (token) {
+        session = token;
+      }
+
+      return session;
+    },
     secret: "chavinha",
     pages: {
       signIn: "/login", 

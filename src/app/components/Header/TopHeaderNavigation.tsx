@@ -7,9 +7,7 @@ import styles from "@/app/components/Header/Sidebar.module.css";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signOut, getSession } from "next-auth/react";
-// import packageJson from "@/app/../../package.json";
 import { MenuListItemParam, User } from "@/app/types/objects";
-import Image from "next/image";
 
 export default function HeaderMenu() {
 
@@ -34,8 +32,10 @@ export default function HeaderMenu() {
         if (!session) {
             router.push("/login", {scroll: false});
         }else{
-
+          
             const user: User = session.user;
+
+            console.log(user);
 
             setUser(user);
         }
@@ -130,9 +130,18 @@ export default function HeaderMenu() {
           <div tabIndex={1} className="dropdown dropdown-end">
             <div role="button" className="btn btn-ghost btn-square rounded-xl avatar w-12 h-12">
               <div className="w-11 rounded-xl">
-                { user?.email && user?.imagem &&
-                <Image alt={user?.email} src={user?.imagem} width={44} height={44}/>
-                }
+                <svg className="fill-green-500 w-11 h-11" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512">
+                  <g>
+                    <path d="M162.592,147.193c0,0,56.607,11.331,130.198-62.272c33.969,45.3,56.63,67.938,56.63,67.938v67.96
+                      c22.727-23.44,36.795-55.36,36.795-90.598C386.215,58.298,327.917,0,255.994,0c-71.9,0-130.198,58.298-130.198,130.221
+                      c0,35.238,14.046,67.157,36.795,90.598V147.193z"/>
+                    <path d="M343.32,297.426c-9.137,4.996-87.325,176.655-87.325,176.655s-78.176-171.658-87.326-176.655
+                      C80.654,329.18,76.724,400.311,76.724,512h358.552C435.276,400.311,431.347,329.18,343.32,297.426z"/>
+                    <polygon points="217.017,289.757 217.017,341.733 255.994,328.478 294.982,341.733 294.982,289.757 255.994,303.013 	
+                      "/>
+                  </g>
+                </svg>
               </div>
             </div>
             <ul

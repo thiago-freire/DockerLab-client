@@ -5,6 +5,8 @@ import 'server-only';
 import { Machine, ResponseDockerLab, FullMachine } from '@/app/types/objects';
 import { APIURL } from "@/app/server/globals";
 import { RequestBuilder } from '../requests/builder';
+import { MachineFormSchema } from '@/app/functions/registerMachine/definitions';
+import { formatError } from '@/app/server/errors/formatError';
 
 /**
  * Envia um objeto máquina para API
@@ -13,6 +15,26 @@ import { RequestBuilder } from '../requests/builder';
  * @returns Resposta da API 
  */
 export async function sendMachinetoAPI(machine: Omit<Machine, 'id' | 'status' | 'create_date'>){
+
+
+    // validate the request
+    const result = await MachineFormSchema.safeParseAsync(machine);
+
+    if(!result.success){
+
+        const erros: string[] = []
+        const errors = formatError(result.error);
+
+        if(errors.fieldErrors){
+            for (const key in errors.fieldErrors) {
+                if(errors.fieldErrors[key])
+                    erros.push(key+":"+errors.fieldErrors[key]);
+              }
+        }
+        
+        
+        return {mensage: erros, status: false, error: "Field Errors"};
+    }
 
     const requestOptions = new RequestBuilder()
     .setMethod('POST')

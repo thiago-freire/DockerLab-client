@@ -1,7 +1,7 @@
 import { getToken } from 'next-auth/jwt'
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server'
-import data from './data.json';
+// import data from './data.json';
 
 export async function middleware(request: NextRequest) {
   
@@ -12,13 +12,14 @@ export async function middleware(request: NextRequest) {
 
   if (session) {
 
-    const interestingItems = new Set(data);
-    const isItemInSet = interestingItems.has(session.email!);
+    // const interestingItems = new Set(data);
+    // const isItemInSet = interestingItems.has(session.email!);
     
-    if(!isItemInSet && request.nextUrl.pathname !== "/home/visitante"){
-      const response = NextResponse.redirect(new URL('/home/visitante', request.nextUrl));
-      return response;
-    } else if (request.nextUrl.pathname === "/") {
+    // if(!isItemInSet && request.nextUrl.pathname !== "/home/visitante"){
+    //   const response = NextResponse.redirect(new URL('/home/visitante', request.nextUrl));
+    //   return response;
+    // } else 
+    if (request.nextUrl.pathname === "/") {
       const response = NextResponse.redirect(new URL('/home/viplab', request.nextUrl));
       return response;
     }

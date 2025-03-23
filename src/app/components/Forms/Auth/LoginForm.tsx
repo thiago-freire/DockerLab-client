@@ -87,7 +87,7 @@ export function LoginForm() {
                 return;
             }
 
-            route.push('/home');
+            route.push('/home/machines');
         });
     };
     

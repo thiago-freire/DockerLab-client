@@ -1,55 +1,15 @@
 
 'use server';
 import 'server-only';
-import { SignupFormSchema } from './definitions';
 // import bcrypt from 'bcrypt';
-import { redirect } from 'next/navigation';
 import { APIURL } from '../globals';
 import { User } from '@/app/types/objects';
-import { ActionResult } from 'next/dist/server/app-render/types';
-import { formatError, getErrorsForBack } from '../errors/formatError';
-import { revalidatePath } from 'next/cache';
+
+import { getErrorsForBack } from '@/app/server/errors/formatError';
 import { RequestBuilder } from '../requests/builder';
-import { ActionErrors, instanceOfActionErrors } from '@/app/types/forms';
+import { ActionErrors } from '@/app/types/forms';
 
-/**
- * Valida o formulário utilizando o esquema SignupFormSchema 
- * @param {FormData} formData O formulário a ser validado 
- * @returns {import('zod').SafeParseReturnType} Resultado da validação
- */
-export async function signup(prevState: ActionResult, formData: FormData): Promise<ActionResult> {
-
-    const data = Object.fromEntries(formData.entries());
-
-    // validate the request
-    const result = await SignupFormSchema.safeParseAsync(data);
-    if(!result.success) return {
-        errors: formatError(result.error) 
-    };
-
-    const user: Omit<User, 'id'> = result.data;
-  
-  try {
-    // create a new user
-    const userId = await createUser(user);
-    if(instanceOfActionErrors(userId)) 
-        return {
-            errors: userId
-        };
-  }
-  catch (error) {
-    return {
-      errors: formatError(error)
-    }
-  }
-
-  // redirect to the signin page
-  const path = '/login';
-  revalidatePath(path);
-  redirect(path);
-}
-
-async function createUser(user_send: Omit<User, 'id'>): Promise<User | ActionErrors>{
+export async function createUser(user_send: Omit<User, 'id'>): Promise<User | ActionErrors>{
 
     type JSONResponse = {
         user?: User,
@@ -76,9 +36,10 @@ async function createUser(user_send: Omit<User, 'id'>): Promise<User | ActionErr
 		}
     }else{
         const itens: string[] = [];
-        error?.forEach(item=>{
-            itens.push(item.message);
-        });
+        console.log(error)
+        // error?.forEach(item=>{
+        //     itens.push(item.message);
+        // });
         return getErrorsForBack(itens);
     }
 }
