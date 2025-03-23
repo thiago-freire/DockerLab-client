@@ -1,7 +1,7 @@
 import { MouseEventHandler } from "react";
 
 export interface LoginData {
-    email: string;
+    login: string;
     password: string | null;
 }
 

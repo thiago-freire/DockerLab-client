@@ -35,10 +35,7 @@ export default function HeaderMenu() {
             router.push("/login", {scroll: false});
         }else{
 
-            const user: User = {name: session.user?.name,
-                                email: session.user?.email,
-                                imagem: session.user?.image,
-                                profile: null};
+            const user: User = session.user;
 
             setUser(user);
         }

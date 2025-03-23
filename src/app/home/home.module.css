@@ -5,3 +5,7 @@
 .top{
     @apply text-3xl font-bold uppercase mb-9
 }
+
+.signup_conteiner{
+    @apply flex justify-center items-center min-h-screen
+}

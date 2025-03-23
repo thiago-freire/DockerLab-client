@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSession } from "next-auth/react";
-import { NCAForm } from "@/app/components/Forms/Auth/NCAForm";
+import { LoginForm } from "@/app/components/Forms/Auth/LoginForm";
 
 export default function Login(){
 
@@ -23,7 +23,7 @@ export default function Login(){
             }else{
                 setContent(<div className="flex bg-cover bg-center bg-docker_image min-h-screen justify-end">
                                 <div className="flex justify-center align-middle">
-                                    <NCAForm/>
+                                    <LoginForm/>
                                 </div>
                             </div>);
             }

@@ -7,11 +7,10 @@ import { redirect } from 'next/navigation';
 import { APIURL } from '../globals';
 import { User } from '@/app/types/objects';
 import { ActionResult } from 'next/dist/server/app-render/types';
-import { formatError, getErrorsForBack, getErrorsForField, getErrorsForForm } from './formatError';
+import { formatError, getErrorsForBack } from '../errors/formatError';
 import { revalidatePath } from 'next/cache';
 import { RequestBuilder } from '../requests/builder';
 import { ActionErrors, instanceOfActionErrors } from '@/app/types/forms';
-import { use } from 'react';
 
 /**
  * Valida o formulário utilizando o esquema SignupFormSchema 

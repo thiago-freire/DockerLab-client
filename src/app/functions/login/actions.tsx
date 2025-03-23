@@ -7,15 +7,18 @@ import type { LoginData } from "@/app/types/objects"
 
 /**
  * Extrai dados de um formulário: email e password e cifra a password
- * @param {FormData} validateResult Formulário com os campos
- * @returns {email, hashedPassword} Objeto com email e hashedPassword
+ * @param {Zod.SafeParseSuccess<LoginData>} data Formulário com os campos
+ * @returns {Promise<LoginData>} Objeto com email e hashedPassword
  */
 export async function getDataFromResult(data: Zod.SafeParseSuccess<LoginData>) : Promise<LoginData>{
 
-    // data.password = await bcrypt.hash(data.password, 10);
-    // const email = data.email;
+    const login = data.data.login;
     
-    // return { email, password}
-
-    return data.data;
+    // if(data.data.password != null){
+    //     data.data.password = await bcrypt.hash(data.data.password, 10);
+    // }
+        
+    const password = data.data.password;
+    
+    return {login, password}
 }

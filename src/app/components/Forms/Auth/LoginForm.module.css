@@ -25,3 +25,7 @@
 .conteiner {
     @apply bg-white flex flex-col items-center rounded-2xl py-16 max-w-screen-md max-h-screen
 }
+
+._svg{
+    @apply fill-black h-6 w-6 opacity-80
+}
