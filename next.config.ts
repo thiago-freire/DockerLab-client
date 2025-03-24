@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true, // temp add for next-auth failded build issues
   },
+  distDir: '.next',
 };
 
 export default nextConfig;
