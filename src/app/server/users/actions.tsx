@@ -35,15 +35,82 @@ export async function createUser(user_send: Omit<User, 'id'>): Promise<User | Ac
             return getErrorsForBack('Erro no Backend ao cadastrar usuário.');
 		}
     }else{
-        const itens: string[] = [];
+        
         console.log(error)
-        // error?.forEach(item=>{
-        //     itens.push(item.message);
-        // });
-        return getErrorsForBack(itens);
+        if(typeof error == "string"){
+            return getErrorsForBack(error);
+        }else{
+            const itens: string[] = [];
+            error?.forEach(item=>{
+                itens.push(item.message);
+            });
+            return getErrorsForBack(itens);
+        }
     }
 }
 
+export async function updateUser(user_send: User): Promise<Boolean | ActionErrors>{
+
+    type JSONResponse = {
+        resp?: Boolean,
+        error?: Array<{ message: string }>
+    }
+
+    const requestOptions = new RequestBuilder()
+    .setMethod('POST')
+    .setContentType("application/json")
+    .setBody(user_send)
+    .build();
+
+    const url = `${APIURL}/user/update`;
+
+    const response = await fetch(url, requestOptions);
+
+    const { resp, error }: JSONResponse = await response.json();
+
+    if(response.ok){
+        console.log(resp);
+		if (resp) {
+			return resp;
+		} else {
+            return getErrorsForBack('Erro no Backend ao atualizar usuário.');
+		}
+    }else{
+        
+        console.log(error)
+        if(typeof error == "string"){
+            return getErrorsForBack(error);
+        }else{
+            const itens: string[] = [];
+            error?.forEach(item=>{
+                itens.push(item.message);
+            });
+            return getErrorsForBack(itens);
+        }
+    }
+}
+
+export async function getUserList(): Promise<Array<User>>{
+    
+    const retorno: Array<User> = [];
+
+    const url = `${APIURL}/user/list`;
+    
+    const backResponse = await fetch(url)
+    .then(reponse => reponse.json())
+    .catch(error => {
+        return {'mensage': 'Erro ao enviar dados a API', 'status': false, 'error':error};
+    });
+
+    if(!backResponse.status){
+
+        const users : Array<User> = Object.assign( new Array<User>(), backResponse.lista );
+        return users;
+    }
+
+
+    return retorno
+}
 // /**
 //  * Extrai name, surname, email e password de um formulário e calcula a hash da senha utilizando bcrypt
 //  * @param {FormData} validateResult 

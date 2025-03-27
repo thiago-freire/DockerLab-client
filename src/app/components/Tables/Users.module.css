@@ -1,0 +1,19 @@
+.conteiner{
+    @apply h-max overflow-x-auto;
+}
+
+.table_{
+    @apply table table-pin-rows bg-sky-200;
+}
+
+.thead_{
+    @apply uppercase font-bold text-sky-950;
+}
+
+.tr_{
+    @apply hover:bg-sky-600 text-sky-950;
+}
+
+.break_line{
+    @apply whitespace-pre-line
+}

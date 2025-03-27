@@ -62,7 +62,7 @@ export async function sendMachinetoAPI(machine: Omit<Machine, 'id' | 'status' | 
  * @type {Promisse<Array<Machine>>}
  * @returns Resposta da API 
  */
-export async function getMachineList(){
+export async function getMachineList(): Promise<Array<FullMachine | Machine>>{
 
     const url = `${APIURL}/machine/list`;
 

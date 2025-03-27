@@ -16,7 +16,7 @@ export interface User {
     name: string,
     email: string,
     password: string,
-    profile: 'A' | 'U'
+    profile: 'A' | 'U' | 'N'
 }
 
 export interface MenuListItemParam {
