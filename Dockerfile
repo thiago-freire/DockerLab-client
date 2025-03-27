@@ -1,29 +1,16 @@
-FROM node:22-alpine AS base
+FROM node:22-alpine
 
-FROM base AS deps
+WORKDIR /usr/bin/client
 
-ENV NODE_ENV=development
-ENV PATH=$PATH:/app/node_modules/.bin
+COPY package.json package-lock.json ./ 
 
-WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm ci
-
-FROM base AS builder
-
-WORKDIR /app
-
-COPY --from=deps /app/node_modules ./node_modules
+RUN npm install --frozen-lockfile
 
 COPY . .
 
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+
 RUN npm run build
 
-RUN npm install -g next
-
 EXPOSE 3000
-
-CMD ["next", "start", "-p", "3000"]
-#CMD ["npm", "run", "start"]
