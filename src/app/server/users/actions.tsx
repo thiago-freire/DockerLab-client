@@ -69,7 +69,6 @@ export async function updateUser(user_send: User): Promise<Boolean | ActionError
     const { resp, error }: JSONResponse = await response.json();
 
     if(response.ok){
-        console.log(resp);
 		if (resp) {
 			return resp;
 		} else {
