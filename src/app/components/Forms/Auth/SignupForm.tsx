@@ -4,11 +4,9 @@ import styles from "./SignuForm.module.css"
 import React, { useEffect, useState, useTransition } from 'react';
 import { SignupFormSchema } from '@/app/server/users/definitions';
 import { FieldValues, useForm } from 'react-hook-form';
-import { useRouter } from "next/navigation";
 import { formatError } from '@/app/server/errors/formatError';
 import { User } from '@/app/types/objects';
 import { createUser, updateUser } from '@/app/server/users/actions';
-import { setTimeout } from 'node:timers';
 
 function SpanError(children: {text: string}){
 
@@ -122,7 +120,8 @@ export function SignupForm(data: {editingUser: User, update: number, setUpdate: 
                     }else{
                         const user_update: User = Object.assign(user, {id: data.id});
                         const result = await updateUser(user_update);
-                        if(instanceOfActionErrors(result)){
+                        
+                        if(typeof result !== "boolean" && instanceOfActionErrors(result)){
                             setError(result);
                             console.log(result);
                         }else{

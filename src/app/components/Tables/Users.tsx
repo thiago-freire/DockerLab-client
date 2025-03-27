@@ -3,6 +3,7 @@
 import styles from "@/app/components/Tables/Users.module.css";
 import { getUserList } from "@/app/server/users/actions";
 import { User } from "@/app/types/objects";
+import { Console } from "console";
 import { ReactElement, useEffect, useState } from "react";
 
 export function Users(data: {setEditingUser: (us: User)=> void, update: number}){
@@ -33,7 +34,7 @@ export function Users(data: {setEditingUser: (us: User)=> void, update: number})
     }
 
     function handleDelete(user: User){
-
+        console.log(user);
     }
 
     function handleEdit(user: User){

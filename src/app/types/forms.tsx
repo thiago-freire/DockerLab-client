@@ -5,7 +5,6 @@ export type ActionResult = {
 }
 
 export function instanceOfActionErrors(object: object): object is ActionErrors {
-    if(typeof object === "boolean") return false;
     return 'fieldErrors' in object || 'formErrors' in object || 'backError' in object;
 }
 

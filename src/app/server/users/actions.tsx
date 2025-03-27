@@ -49,10 +49,10 @@ export async function createUser(user_send: Omit<User, 'id'>): Promise<User | Ac
     }
 }
 
-export async function updateUser(user_send: User): Promise<Boolean | ActionErrors>{
+export async function updateUser(user_send: User): Promise<boolean | ActionErrors>{
 
     type JSONResponse = {
-        resp?: Boolean,
+        resp?: boolean,
         error?: Array<{ message: string }>
     }
 
