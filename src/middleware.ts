@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server'
 // import data from './data.json';
 
 export async function middleware(request: NextRequest) {
-  
+
   const session = (await getToken({
     req: request,
     secret: process.env.AUTH_SECRET,
