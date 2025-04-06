@@ -5,7 +5,7 @@ import { deleteUser, getUserList } from "@/app/server/users/actions";
 import { User } from "@/app/types/objects";
 import { ReactElement, useEffect, useState } from "react";
 
-export function Users(data: {setEditingUser: (us: User)=> void, update: number}){
+export function Users(data: {setEditingUser: (us: User)=> void, update: number, profile:'A'|'U'}){
 
     const [users, setUsers] = useState<Array<User>>();
     const [toast, setToast] = useState<React.ReactNode>(null);
@@ -74,8 +74,8 @@ export function Users(data: {setEditingUser: (us: User)=> void, update: number})
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>Perfil</th>
-                    <th></th>
-                    <th></th>
+                    {data.profile == 'A' && <th></th>}
+                    {data.profile == 'A' && <th></th>}
                 </tr>
                 </thead>
                 <tbody>
@@ -89,13 +89,12 @@ export function Users(data: {setEditingUser: (us: User)=> void, update: number})
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     {getPerfil(user)}
-                                    <td>
+                                    {data.profile == 'A' && <td>
                                         <button onClick={() => handleEdit(user)}>Editar</button>
-                                    </td>
-                                    <td>
+                                    </td>}
+                                    {data.profile == 'A' && <td>
                                       <button onClick={() => handleDelete(user)}>Excluir</button>
-                                    </td>
-
+                                    </td>}
                                 </tr>
                             )
                         })
