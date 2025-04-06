@@ -13,7 +13,7 @@ declare module "next-auth" {
     name: string,
     email: string,
     password: string,
-    profile: 'A' | 'U'
+    profile: 'A' | 'U' | 'N'
   }
 
   interface Session {
