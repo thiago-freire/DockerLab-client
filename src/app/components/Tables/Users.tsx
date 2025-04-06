@@ -2,7 +2,8 @@
 
 import styles from "@/app/components/Tables/Users.module.css";
 import { deleteUser, getUserList } from "@/app/server/users/actions";
-import { User } from "@/app/types/objects";
+import { User } from "next-auth";
+// import { User } from "@/app/types/objects";
 import { ReactElement, useEffect, useState } from "react";
 
 export function Users(data: {setEditingUser: (us: User)=> void, update: number, profile:'A'|'U'}){

@@ -3,11 +3,12 @@
 import 'server-only';
 // import bcrypt from 'bcrypt';
 import { APIURL } from '../globals';
-import { User } from '@/app/types/objects';
+// import { User } from '@/app/types/objects';
 
 import { getErrorsForBack } from '@/app/server/errors/formatError';
 import { RequestBuilder } from '../requests/builder';
 import { ActionErrors } from '@/app/types/forms';
+import { User } from 'next-auth';
 
 export async function createUser(user_send: Omit<User, 'id'>): Promise<User | ActionErrors>{
 

@@ -2,8 +2,9 @@
 import { SignupForm } from "@/app/components/Forms/Auth/SignupForm";
 import { Users } from "@/app/components/Tables/Users";
 import styles from "@/app/home/home.module.css"
-import { User } from "@/app/types/objects";
-import { useSession } from "next-auth/react";
+import { User } from "next-auth";
+// import { User } from "@/app/types/objects";
+import { getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 export default function Page(){
@@ -12,15 +13,25 @@ export default function Page(){
     const [update, setUpdate] = useState<number>(0);
     const [profile, setProfile] = useState<'A'|'U'>('U');
 
-    const session = useSession();
-
     useEffect(()=>{
 
-        const user = session.data?.user;
-
-        if(user != null && user.profile != 'N')
-            setProfile(user.profile);
-
+        const verifySession = async () => {
+            const session = await getSession();
+            if(session && session.user)
+                console.log(session.user);
+            return session;
+        }
+    
+        verifySession().then((session)=>{
+            if(session){
+                const user = session.user;
+    
+                console.log(user);
+    
+                if(user.profile != 'N')
+                    setProfile(user.profile);
+            }
+        });
     },[]);
     
     return  <div className={styles.conteiner}>

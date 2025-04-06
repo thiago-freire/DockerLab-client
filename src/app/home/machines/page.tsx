@@ -10,15 +10,18 @@ export default function Page(){
 
     const [profile, setProfile] = useState<'A'|'U'>('U');
     
-    const session = useSession();
+    const {data: session} = useSession();
 
     useEffect(()=>{
 
-        const user = session.data?.user;
+        if(session){
+            const user = session.user;
 
-        if(user != null && user.profile != 'N')
-            setProfile(user.profile);
+            console.log(user);
 
+            if(user.profile != 'N')
+                setProfile(user.profile);
+        }
     },[]);
 
     return  <div className={styles.conteiner}>

@@ -27,7 +27,8 @@
       "@/app/*": [
         "app/*"
       ]
-    }
+    },
+    "typeRoots": ["./src/app/types"],
   },
   "include": [
     "**/*.ts",

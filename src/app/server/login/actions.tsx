@@ -1,8 +1,9 @@
 import { ActionErrors } from "@/app/types/forms";
-import { User } from "@/app/types/objects";
+// import { User } from "@/app/types/objects";
 import { APIURL } from "../globals";
 import { RequestBuilder } from "../requests/builder";
 import { getErrorsForBack } from "../errors/formatError";
+import { User } from "next-auth";
 
 
 /**

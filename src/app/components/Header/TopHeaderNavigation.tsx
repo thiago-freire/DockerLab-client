@@ -7,7 +7,8 @@ import styles from "@/app/components/Header/Sidebar.module.css";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signOut, getSession } from "next-auth/react";
-import { MenuListItemParam, User } from "@/app/types/objects";
+import { MenuListItemParam} from "@/app/types/objects";
+import { User } from "next-auth";
 
 export default function HeaderMenu() {
 
@@ -25,7 +26,10 @@ export default function HeaderMenu() {
   useEffect(() =>{
 
     const verifySession = async () => {
-        return await getSession();
+      const session = await getSession();
+      if(session && session.user)
+        console.log(session.user);
+      return session;
     }
 
     verifySession().then((session)=>{
