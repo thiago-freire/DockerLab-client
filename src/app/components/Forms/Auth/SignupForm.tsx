@@ -5,8 +5,8 @@ import React, { useEffect, useState, useTransition } from 'react';
 import { SignupFormSchema } from '@/app/server/users/definitions';
 import { FieldValues, useForm } from 'react-hook-form';
 import { formatError } from '@/app/server/errors/formatError';
-import { User } from '@/app/types/objects';
 import { createUser, updateUser } from '@/app/server/users/actions';
+import { User } from 'next-auth';
 
 function SpanError(children: {text: string}){
 
@@ -66,7 +66,7 @@ export function SignupForm(data: {editingUser: User, update: number, setUpdate: 
             setValue("id", data.editingUser.id);
         }
         
-    },[data.editingUser]);
+    },[data.editingUser, setValue]);
 
     const signup = async (data_form: FieldValues) =>{
         

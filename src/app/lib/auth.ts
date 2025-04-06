@@ -3,8 +3,8 @@ import { sendUsertoAPI } from "@/app/server/login/actions";
 import { instanceOfActionErrors } from "@/app/types/forms";
 import { User } from "next-auth";
 import { JWT } from "next-auth/jwt";
-import { Account, NextAuthOptions, Profile, Session } from "next-auth";
-import { Adapter, AdapterUser } from "next-auth/adapters";
+import { NextAuthOptions, Session } from "next-auth";
+import { AdapterUser } from "next-auth/adapters";
 
 export const nextAuthOptions: NextAuthOptions = {
 

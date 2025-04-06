@@ -22,7 +22,7 @@ export default function Page(){
             if(user.profile != 'N')
                 setProfile(user.profile);
         }
-    },[]);
+    },[session]);
 
     return  <div className={styles.conteiner}>
                 {profile == 'A' && <div tabIndex={0} className="collapse collapse-open collapse-arrow bg-base-100 border-base-300 border">

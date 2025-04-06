@@ -112,10 +112,10 @@ export async function getUserList(): Promise<Array<User>>{
     return retorno
 }
 
-export async function deleteUser(user_send: User): Promise<Boolean | ActionErrors>{
+export async function deleteUser(user_send: User): Promise<boolean | ActionErrors>{
 
     type JSONResponse = {
-        resp?: Boolean,
+        resp?: boolean,
         error?: Array<{ message: string }>
     }
 

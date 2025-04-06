@@ -37,11 +37,9 @@ export default function HeaderMenu() {
             router.push("/login", {scroll: false});
         }else{
           
-            const user: User = session.user;
+          console.log(session.user);
 
-            console.log(user);
-
-            setUser(user);
+          setUser(session.user);
         }
     });
     
