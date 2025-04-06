@@ -1,23 +1,16 @@
 "use client"
 
 import styles from "@/app/components/Tables/Users.module.css";
-import { getUserList } from "@/app/server/users/actions";
+import { deleteUser, getUserList } from "@/app/server/users/actions";
 import { User } from "@/app/types/objects";
 import { ReactElement, useEffect, useState } from "react";
 
 export function Users(data: {setEditingUser: (us: User)=> void, update: number}){
 
     const [users, setUsers] = useState<Array<User>>();
-
+    const [toast, setToast] = useState<React.ReactNode>(null);
 
     useEffect(()=>{
-
-        async function getUsers(){
-
-            const listUsers = await getUserList();
-            console.log(listUsers);
-            setUsers(listUsers);
-        }
         
         getUsers();
 
@@ -32,7 +25,35 @@ export function Users(data: {setEditingUser: (us: User)=> void, update: number})
             }
     }
 
-    function handleDelete(user: User){
+    async function getUsers(){
+
+        const listUsers = await getUserList();
+        console.log(listUsers);
+        setUsers(listUsers);
+    }
+
+    async function handleDelete(user: User){
+
+        const resp = await deleteUser(user);
+
+        if(resp){
+
+            setToast(<div className="toast toast-bottom toast-end">
+                        <div className="alert alert-success">
+                        <span>Usuário removido com Sucesso.</span>
+                        </div>
+                    </div>);
+            setTimeout(()=>{setToast(null)}, 2000);
+            getUsers();
+        }else{
+
+            setToast(<div className="toast toast-bottom toast-end">
+                        <div className="alert alert-error">
+                        <span>Erro ao deletar Usuário.</span>
+                        </div>
+                    </div>);
+            setTimeout(()=>{setToast(null)}, 2000);
+        }
 
     }
 
@@ -85,6 +106,7 @@ export function Users(data: {setEditingUser: (us: User)=> void, update: number})
                     )}
                 </tbody>
             </table>
+            {toast}
         </div>
     );
 }

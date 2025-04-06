@@ -110,6 +110,46 @@ export async function getUserList(): Promise<Array<User>>{
 
     return retorno
 }
+
+export async function deleteUser(user_send: User): Promise<Boolean | ActionErrors>{
+
+    type JSONResponse = {
+        resp?: Boolean,
+        error?: Array<{ message: string }>
+    }
+
+    const requestOptions = new RequestBuilder()
+    .setMethod('POST')
+    .setContentType("application/json")
+    .setBody(user_send)
+    .build();
+
+    const url = `${APIURL}/user/delete`;
+
+    const response = await fetch(url, requestOptions);
+
+    const { resp, error }: JSONResponse = await response.json();
+
+    if(response.ok){
+		if (resp) {
+			return resp;
+		} else {
+            return getErrorsForBack('Erro no Backend ao deletar usuário.');
+		}
+    }else{
+        
+        console.log(error)
+        if(typeof error == "string"){
+            return getErrorsForBack(error);
+        }else{
+            const itens: string[] = [];
+            error?.forEach(item=>{
+                itens.push(item.message);
+            });
+            return getErrorsForBack(itens);
+        }
+    }
+}
 // /**
 //  * Extrai name, surname, email e password de um formulário e calcula a hash da senha utilizando bcrypt
 //  * @param {FormData} validateResult 
