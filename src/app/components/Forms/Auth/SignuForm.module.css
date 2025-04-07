@@ -3,7 +3,7 @@
 }
 
 .titulo{
-    @apply font-bold font-display text-4xl text-black mb-10
+    @apply font-bold font-roboto text-4xl text-black mb-10
 }
 
 ._label{

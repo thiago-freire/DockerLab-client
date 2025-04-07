@@ -1,5 +1,5 @@
 .submit_button {
-    @apply btn btn-primary
+    @apply btn bg-sky-600 hover:bg-sky-400 btn-ghost rounded-xl
 }
 
 .innerDiv {

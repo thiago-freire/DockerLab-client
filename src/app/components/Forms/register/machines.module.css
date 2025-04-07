@@ -3,7 +3,7 @@
 }
 
 .title {
-    @apply font-bold font-display text-4xl text-black mb-8
+    @apply font-bold font-roboto text-4xl text-black mb-8
 }
 
 .form {

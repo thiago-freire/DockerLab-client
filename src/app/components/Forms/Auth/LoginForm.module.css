@@ -1,5 +1,5 @@
 .title {
-    @apply font-bold font-display text-4xl text-black mb-16
+    @apply font-bold font-roboto text-4xl text-white mb-16
 }
 
 .form {
@@ -23,7 +23,7 @@
 }
 
 .conteiner {
-    @apply bg-white flex flex-col items-center rounded-2xl py-16 max-w-screen-md max-h-screen
+    @apply bg-black flex flex-col justify-center items-center rounded-2xl py-16 max-w-screen-md max-h-screen
 }
 
 ._svg{

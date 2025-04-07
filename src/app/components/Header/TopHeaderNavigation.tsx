@@ -14,6 +14,7 @@ import { Session } from "next-auth";
 export default function HeaderMenu() {
 
   const [user, setUser] = useState<User>();
+  const [letra, setLetra] = useState<string>();
   const [param1, setParam1] = useState<MenuListItemParam[]>();
   const [param2, setParam2] = useState<MenuListItemParam>();
 
@@ -46,6 +47,17 @@ export default function HeaderMenu() {
     });
     
   },[router]);
+
+  useEffect(()=>{
+
+    if(user?.name){
+      const fristLetra = user.name.charAt(0).toUpperCase();
+      setLetra(fristLetra);
+    }else{
+      setLetra('D');
+    }
+
+  },[user]);
 
   useEffect(()=>{
 
@@ -132,18 +144,13 @@ export default function HeaderMenu() {
             <div className='mx-4 text-xs text-gray-400'>{user?.email}</div>
           </div>
           <div tabIndex={1} className="dropdown dropdown-end">
-            <div role="button" className="btn btn-ghost btn-square rounded-xl avatar w-12 h-12">
-              <div className="w-11 rounded-xl">
-                <svg className="fill-green-500 w-11 h-11" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512">
-                  <g>
-                    <path d="M162.592,147.193c0,0,56.607,11.331,130.198-62.272c33.969,45.3,56.63,67.938,56.63,67.938v67.96
-                      c22.727-23.44,36.795-55.36,36.795-90.598C386.215,58.298,327.917,0,255.994,0c-71.9,0-130.198,58.298-130.198,130.221
-                      c0,35.238,14.046,67.157,36.795,90.598V147.193z"/>
-                    <path d="M343.32,297.426c-9.137,4.996-87.325,176.655-87.325,176.655s-78.176-171.658-87.326-176.655
-                      C80.654,329.18,76.724,400.311,76.724,512h358.552C435.276,400.311,431.347,329.18,343.32,297.426z"/>
-                    <polygon points="217.017,289.757 217.017,341.733 255.994,328.478 294.982,341.733 294.982,289.757 255.994,303.013 	
-                      "/>
+            <div role="button" className="btn btn-ghost btn-circle avatar w-12 h-12">
+              <div className="w-10 rounded-xl">
+                <svg className="fill-sky-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+                  <g id="UrTavla">
+                    <circle  cx="250" cy="250" r="245">
+                    </circle>
+                    <text className="fill-white font-Italianno" x="50%" y="80%" textAnchor="middle" fontSize="500">{letra}</text>
                   </g>
                 </svg>
               </div>

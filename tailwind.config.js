@@ -99,7 +99,8 @@ module.exports = {
         144: '-114px'
       },
       fontFamily:{
-        'display': ['Roboto', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+        Italianno: ["Italianno", "cursive"],
       },
       padding:{
         2.5: '10px'
@@ -126,9 +127,16 @@ module.exports = {
       },
     ],
   },
-  plugins: [require(getDaisyUI())],
+  plugins: [
+    require(getDaisyUI()), 
+    require(getTypography())
+  ],
 };
 
 function getDaisyUI() {
   return "daisyui";
+}
+
+function getTypography(){
+  return "@tailwindcss/typography";
 }

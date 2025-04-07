@@ -10,6 +10,7 @@ import type { ErrorType } from "@/app/types/objects"
 import { signIn } from 'next-auth/react'
 import { useRouter } from "next/navigation";
 import { useTransition, useState } from "react";
+import Image from "next/image";
 
 export function LoginForm() {
 
@@ -86,6 +87,7 @@ export function LoginForm() {
     
     //JSX
     return (<div className={styles.conteiner}>
+                <Image src='/assets/docker_logo.png' alt="Docker Lab" width={233} height={60} className="mb-9"/>
                 <h1 className={styles.title}>Login</h1>
                 <form onSubmit={handleSubmit(login_func)} className={styles.form}>
                     <div className={styles.wrapperEmailInput}>
