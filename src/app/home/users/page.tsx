@@ -17,8 +17,6 @@ export default function Page(){
 
         const verifySession = async () => {
             const session = await getSession();
-            if(session && session.user)
-                console.log(session.user);
             return session;
         }
     
@@ -26,9 +24,7 @@ export default function Page(){
             if(session){
                 const user = session.user;
     
-                console.log(user);
-    
-                if(user.profile != 'N')
+                if(user && user.profile != 'N')
                     setProfile(user.profile);
             }
         });
