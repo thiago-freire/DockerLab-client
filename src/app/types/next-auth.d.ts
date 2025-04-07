@@ -1,8 +1,9 @@
+import { DefaultSession } from "next-auth"
 
 declare module "next-auth" {
   
-  export interface User {
-    id: number,
+  interface User {
+    id: number | string,
     login: string,
     name: string,
     email: string,
@@ -11,8 +12,19 @@ declare module "next-auth" {
   }
 
   export interface Session {
-    user: User & DefaultSession["user"]
+    user: User | undefined & DefaultSession['user']
   }
+
+  // export interface DefaultSession {
+  //   user?: {
+  //     id: number,
+  //     login: string,
+  //     name: string,
+  //     email: string,
+  //     password: string,
+  //     profile: 'A' | 'U' | 'N'
+  //   }
+  // }
 };
 
 declare module "next-auth/jwt" {

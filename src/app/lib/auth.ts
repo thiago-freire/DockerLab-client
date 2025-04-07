@@ -1,10 +1,11 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import { sendUsertoAPI } from "@/app/server/login/actions";
 import { instanceOfActionErrors } from "@/app/types/forms";
-import { User } from "next-auth";
+import { Session, User } from "next-auth";
 import { JWT } from "next-auth/jwt";
-import { NextAuthOptions, Session } from "next-auth";
+// import { NextAuthOptions, Session } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";
+import { NextAuthOptions } from "next-auth";
 
 export const nextAuthOptions: NextAuthOptions = {
 
@@ -19,7 +20,7 @@ export const nextAuthOptions: NextAuthOptions = {
                 },
                 password: { label: "Senha", type: "password" },
             },
-            authorize: async (credentials) => {
+            async authorize(credentials): Promise<User | AdapterUser | null>{
                 
                 if(!credentials) return null;
                 

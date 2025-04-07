@@ -9,6 +9,7 @@ import Link from "next/link";
 import { signOut, getSession } from "next-auth/react";
 import { MenuListItemParam} from "@/app/types/objects";
 import { User } from "next-auth";
+import { Session } from "next-auth";
 
 export default function HeaderMenu() {
 
@@ -26,7 +27,7 @@ export default function HeaderMenu() {
   useEffect(() =>{
 
     const verifySession = async () => {
-      const session = await getSession();
+      const session: Session | null = await getSession();
       if(session && session.user)
         console.log(session.user);
       return session;
@@ -36,10 +37,11 @@ export default function HeaderMenu() {
         if (!session) {
             router.push("/login", {scroll: false});
         }else{
-          
-          console.log(session.user);
-
-          setUser(session.user);
+          if(session.user){
+            const user: User = session.user;
+            console.log(user);
+            setUser(user);
+          }
         }
     });
     

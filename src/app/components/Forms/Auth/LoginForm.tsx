@@ -77,13 +77,6 @@ export function LoginForm() {
                 
             }catch(error){
                 console.error("Authentication error:", error);
-                // switch (error.type) {
-                //     case "CredentialsSignin":
-                //         setError({message: ["E-mail ou senha inválidos."], type: error.type});
-                //     default:
-                //         console.log(error.message);
-                //         setError({message: [`Servidor Offline.`], type: error.type});
-                // }
                 return;
             }
 
