@@ -1,6 +1,5 @@
 "use client";
 import "client-only";
-//Import Icones
 
 import {useEffect, useState} from "react";
 import styles from "@/app/components/Header/Sidebar.module.css";

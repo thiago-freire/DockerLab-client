@@ -3,7 +3,6 @@ import { SignupForm } from "@/app/components/Forms/Auth/SignupForm";
 import { Users } from "@/app/components/Tables/Users";
 import styles from "@/app/home/home.module.css"
 import { User } from "next-auth";
-// import { User } from "@/app/types/objects";
 import { getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 

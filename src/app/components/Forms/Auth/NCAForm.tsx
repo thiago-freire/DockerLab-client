@@ -13,5 +13,5 @@ export function NCAForm() {
                     <div>Login com</div>
                     <GoogleBtn/>
                 </div>
-            </div>)
+            </div>);
 }

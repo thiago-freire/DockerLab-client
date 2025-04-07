@@ -10,15 +10,6 @@ export interface ErrorType {
     type: string;
 }
 
-// export interface User {
-//     id: number,
-//     login: string,
-//     name: string,
-//     email: string,
-//     password: string,
-//     profile: 'A' | 'U' | 'N'
-// }
-
 export interface MenuListItemParam {
 
     image: React.ReactNode, 
